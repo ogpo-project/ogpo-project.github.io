@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DMPO: Dispersive MeanFlow Policy Optimization - One Step Is Enough for Real-Time Robotic Control">
-    <title>DMPO: Dispersive MeanFlow Policy Optimization</title>
+    <meta name="description" content="OGPO: One-Step Generative Policy Optimization for Real-Time Robot Control - One Step Is Enough for Real-Time Robotic Control">
+    <title>OGPO: One-Step Generative Policy Optimization for Real-Time Robot Control</title>
     <style>
         * {
             margin: 0;
@@ -526,8 +526,8 @@
 
     <header>
         <div class="container">
-            <h1>DMPO: Dispersive MeanFlow Policy Optimization</h1>
-            <div class="subtitle">One Step Is Enough</div>
+            <h1>OGPO: One-Step Generative Policy Optimization for Real-Time Robot Control</h1>
+            <div class="subtitle">One-Step Generative Policy Optimization</div>
             <div class="venue">ACMMM 2026</div>
 
             <div class="authors">
@@ -551,7 +551,7 @@
                     </a>
                 </span>
                 <span class="link-block">
-                    <a href="https://github.com/Guowei-Zou/dmpo-release" class="btn" target="_blank">
+                    <a href="https://github.com/ogpo-project/OGPO" class="btn" target="_blank">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -625,7 +625,7 @@
         <div class="container">
             <div class="content">
                 <div class="tldr">
-                    <strong>TL;DR:</strong> We propose <strong>DMPO (Dispersive MeanFlow Policy Optimization)</strong>, a unified framework that enables <span class="highlight">true one-step generation</span> for real-time robotic control through three key components: MeanFlow for mathematically-derived single-step inference, dispersive regularization to prevent representation collapse, and RL fine-tuning to surpass expert demonstrations. DMPO achieves competitive or superior performance with <span class="highlight">5-20× inference speedup</span>, exceeding real-time requirements (<span class="highlight">>120Hz</span>) and reaching hundreds of Hertz on high-performance GPUs.
+                    <strong>TL;DR:</strong> We propose <strong>OGPO (One-Step Generative Policy Optimization)</strong>, a unified framework that enables <span class="highlight">true one-step generation</span> for real-time robotic control through three key components: MeanFlow for mathematically-derived single-step inference, dispersive regularization to prevent representation collapse, and RL fine-tuning to surpass expert demonstrations. OGPO achieves competitive or superior performance with <span class="highlight">5-20× inference speedup</span>, exceeding real-time requirements (<span class="highlight">>120Hz</span>) and reaching hundreds of Hertz on high-performance GPUs.
                 </div>
             </div>
         </div>
@@ -641,7 +641,7 @@
                 <div class="media-container">
                     <img src="images/abstract_image_page.png" alt="DMPO Overview">
                     <div class="caption">
-                        From efficiency-performance trade-off to practical real-time control. Top: Existing methods lie on the trade-off curve: multi-step approaches (DPPO, ReinFlow) achieve strong performance but slow inference, while one-step methods (CP, MP1, 1-DP) are fast but unstable. DMPO breaks this trade-off by occupying the upper-right region. Bottom: DMPO's two-stage approach enables both fast inference and high performance.
+                        From efficiency-performance trade-off to practical real-time control. Top: Existing methods lie on the trade-off curve: multi-step approaches (DPPO, ReinFlow) achieve strong performance but slow inference, while one-step methods (CP, MP1, 1-DP) are fast but unstable. OGPO breaks this trade-off by occupying the upper-right region. Bottom: OGPO's two-stage approach enables both fast inference and high performance.
                     </div>
                 </div>
             </div>
@@ -655,7 +655,7 @@
         <div class="container">
             <h2>Approach Overview</h2>
             <div class="content">
-                <p>DMPO addresses three interconnected challenges in real-time robotic control:</p>
+                <p>OGPO addresses three interconnected challenges in real-time robotic control:</p>
 
                 <div class="grid">
                     <div class="card">
@@ -680,13 +680,13 @@
                 <div class="media-container">
                     <img src="images/DMPO-Framework.png" alt="DMPO Framework">
                     <div class="caption">
-                        DMPO Framework Overview. Stage 1 (Top & Middle): Pre-training with dispersive MeanFlow. MeanFlow learns velocity fields that transform noise into actions via Vision Transformer encoding with dispersive losses to prevent representation collapse. Stage 2 (Bottom): PPO fine-tuning formulated as a two-layer policy factorization.
+                        OGPO Framework Overview. Stage 1 (Top & Middle): Pre-training with dispersive MeanFlow. MeanFlow learns velocity fields that transform noise into actions via Vision Transformer encoding with dispersive losses to prevent representation collapse. Stage 2 (Bottom): PPO fine-tuning formulated as a two-layer policy factorization.
                     </div>
                 </div>
 
                 <h3>Our Contributions</h3>
                 <ul>
-                    <li><strong>Framework:</strong> We introduce DMPO, a unified framework enabling stable one-step generation via principled co-design of architecture and algorithms, with 5-20× speedup over multi-step baselines.</li>
+                    <li><strong>Framework:</strong> We introduce OGPO, a unified framework enabling stable one-step generation via principled co-design of architecture and algorithms, with 5-20× speedup over multi-step baselines.</li>
                     <li><strong>Theory:</strong> We establish the first information-theoretic foundation proving dispersive regularization is necessary for stable one-step generation, and derive the first mathematical formulation for RL fine-tuning of one-step policies.</li>
                     <li><strong>Validation:</strong> We achieve state-of-the-art on RoboMimic and OpenAI Gym benchmarks, and validate real-time control (>120Hz) on a Franka robot.</li>
                 </ul>
@@ -705,7 +705,7 @@
                     RQ1: Can one-step generation match or exceed multi-step diffusion policies while achieving faster inference?
                 </div>
 
-                <p><strong>Answer:</strong> Yes. DMPO achieves dramatic inference efficiency gains with true one-step generation:</p>
+                <p><strong>Answer:</strong> Yes. OGPO achieves dramatic inference efficiency gains with true one-step generation:</p>
 
                 <div class="media-container">
                     <img src="images/selected_success_vs_frequency_large_points.png" alt="Efficiency vs Success Rate">
@@ -741,13 +741,13 @@
                     RQ3: Can online RL fine-tuning push beyond the performance ceiling of offline expert data?
                 </div>
 
-                <p><strong>Answer:</strong> Yes. DMPO with only 1 denoising step achieves competitive or superior performance compared to all baselines:</p>
+                <p><strong>Answer:</strong> Yes. OGPO with only 1 denoising step achieves competitive or superior performance compared to all baselines:</p>
 
                 <h3>RoboMimic Manipulation Tasks</h3>
                 <div class="media-container">
                     <img src="images/robomimic_comparison_combined.png" alt="RoboMimic Fine-tuning Results">
                     <div class="caption">
-                        PPO Fine-tuning on RoboMimic tasks (Can, Square, Transport). DMPO (blue) achieves competitive or superior performance with only 1 denoising step compared to DPPO (20 steps), Gaussian baseline, and ReinFlow variants.
+                        PPO Fine-tuning on RoboMimic tasks (Can, Square, Transport). OGPO (blue) achieves competitive or superior performance with only 1 denoising step compared to DPPO (20 steps), Gaussian baseline, and ReinFlow variants.
                     </div>
                 </div>
 
@@ -755,7 +755,7 @@
                 <div class="media-container">
                     <img src="images/gym_all_steps_combined_6tasks.png" alt="Gym Fine-tuning Results">
                     <div class="caption">
-                        PPO Fine-tuning on OpenAI Gym locomotion (Hopper, Walker2d, Ant, Humanoid) and Kitchen manipulation tasks. DMPO with 1-step inference matches or outperforms multi-step baselines.
+                        PPO Fine-tuning on OpenAI Gym locomotion (Hopper, Walker2d, Ant, Humanoid) and Kitchen manipulation tasks. OGPO with 1-step inference matches or outperforms multi-step baselines.
                     </div>
                 </div>
 
@@ -810,7 +810,7 @@
                             <td>38%</td>
                         </tr>
                         <tr class="highlight-row">
-                            <td><strong>DMPO (Ours)</strong></td>
+                            <td><strong>OGPO (Ours)</strong></td>
                             <td><strong>1</strong></td>
                             <td><strong>No</strong></td>
                             <td><strong>100%</strong></td>
@@ -863,7 +863,7 @@
                             <td>96x</td>
                         </tr>
                         <tr class="highlight-row">
-                            <td><strong>DMPO (Ours)</strong></td>
+                            <td><strong>OGPO (Ours)</strong></td>
                             <td><strong>light ViT</strong></td>
                             <td><strong>1.78M</strong></td>
                             <td><strong>1</strong></td>
@@ -885,22 +885,22 @@
             <h2>Real-World Deployment</h2>
             <div class="content">
                 <div class="research-question">
-                    RQ4: Does DMPO transfer to real-world robotic systems?
+                    RQ4: Does OGPO transfer to real-world robotic systems?
                 </div>
 
-                <p><strong>Answer:</strong> Yes. We validated DMPO on a <strong>Franka-Emika-Panda</strong> robot with Intel RealSense D435i camera using an NVIDIA RTX 2080 GPU, demonstrating robust sim-to-real transfer.</p>
+                <p><strong>Answer:</strong> Yes. We validated OGPO on a <strong>Franka-Emika-Panda</strong> robot with Intel RealSense D435i camera using an NVIDIA RTX 2080 GPU, demonstrating robust sim-to-real transfer.</p>
 
                 <div class="media-container">
                     <img src="images/real_world.png" alt="Real Robot Experiments">
                     <div class="caption">
-                        Real-world deployment on Franka Panda robot. Left: Hardware setup with Intel RealSense D435i camera. Right: Comparison between MP1 baseline (top row, fails on Lift and Can due to imprecise grasping caused by representation collapse) and DMPO (rows 2-3, succeeds on all four tasks including Square and Transport).
+                        Real-world deployment on Franka Panda robot. Left: Hardware setup with Intel RealSense D435i camera. Right: Comparison between MP1 baseline (top row, fails on Lift and Can due to imprecise grasping caused by representation collapse) and OGPO (rows 2-3, succeeds on all four tasks including Square and Transport).
                     </div>
                 </div>
 
                 <h3>Key Results</h3>
                 <ul>
                     <li><strong>Real-time control:</strong> 9.6ms total latency enabling <span class="highlight">>100Hz control frequency</span></li>
-                    <li><strong>Network inference:</strong> Only 2.6ms for 1-step DMPO (4.6-18x faster than baselines)</li>
+                    <li><strong>Network inference:</strong> Only 2.6ms for 1-step OGPO (4.6-18x faster than baselines)</li>
                     <li><strong>Robust execution:</strong> Successfully completed all 4 manipulation tasks</li>
                     <li><strong>Sim-to-real transfer:</strong> Policies trained in simulation transfer effectively to physical hardware</li>
                 </ul>
@@ -915,19 +915,19 @@
         <div class="container">
             <h2>Holistic Comparison</h2>
             <div class="content">
-                <p>Radar charts comparing DMPO against baselines across eight evaluation dimensions: Inference Speed, Model Lightweight, Success Rate, Data Efficiency, Representation Quality, Distillation Free, Beyond Demos, and Training Stability. Each dimension is scored on a 1-5 scale.</p>
+                <p>Radar charts comparing OGPO against baselines across eight evaluation dimensions: Inference Speed, Model Lightweight, Success Rate, Data Efficiency, Representation Quality, Distillation Free, Beyond Demos, and Training Stability. Each dimension is scored on a 1-5 scale.</p>
 
                 <div class="media-container">
                     <img src="images/radar_comparison_dual.png" alt="Holistic Radar Comparison">
                     <div class="caption">
-                        <strong>Holistic radar comparison across eight dimensions.</strong> (a) RL fine-tuning methods: DMPO forms the outer envelope, achieving top scores across all dimensions. (b) Generation methods: DMPO outperforms all baselines by combining one-step inference with lightweight architecture, high data efficiency, and the ability to go beyond demonstrations through RL fine-tuning.
+                        <strong>Holistic radar comparison across eight dimensions.</strong> (a) RL fine-tuning methods: OGPO forms the outer envelope, achieving top scores across all dimensions. (b) Generation methods: OGPO outperforms all baselines by combining one-step inference with lightweight architecture, high data efficiency, and the ability to go beyond demonstrations through RL fine-tuning.
                     </div>
                 </div>
 
                 <h3>Key Insights</h3>
                 <ul>
-                    <li><strong>RL Fine-tuning Methods:</strong> While ReinFlow and DPPO share the same lightweight architecture and data efficiency as DMPO, they require multi-step inference (20+ steps). Only DMPO achieves top scores across all eight dimensions.</li>
-                    <li><strong>Generation Methods:</strong> Multi-step baselines (DP, FP) suffer from slow inference. Distilled one-step methods (1-DP, CP) cannot surpass demonstrations. Teacher-free MP1 suffers from representation collapse. DMPO is the only method achieving top performance across all dimensions.</li>
+                    <li><strong>RL Fine-tuning Methods:</strong> While ReinFlow and DPPO share the same lightweight architecture and data efficiency as OGPO, they require multi-step inference (20+ steps). Only OGPO achieves top scores across all eight dimensions.</li>
+                    <li><strong>Generation Methods:</strong> Multi-step baselines (DP, FP) suffer from slow inference. Distilled one-step methods (1-DP, CP) cannot surpass demonstrations. Teacher-free MP1 suffers from representation collapse. OGPO is the only method achieving top performance across all dimensions.</li>
                 </ul>
             </div>
         </div>
@@ -947,7 +947,7 @@
       year={2026}
 }</div>
                 <div class="citation">@misc{zou2026stepenoughdispersivemeanflow,
-      title={One Step Is Enough: Dispersive MeanFlow Policy Optimization},
+      title={One Step Is Enough: One-Step Generative Policy Optimization},
       author={Guowei Zou and Haitao Wang and Hejun Wu and Yukun Qian and Yuhang Wang and Weibing Li},
       year={2026},
       eprint={2601.20701},
@@ -981,7 +981,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 DMPO Project. All rights reserved.</p>
+            <p>&copy; 2026 OGPO Project. All rights reserved.</p>
         </div>
     </footer>
 </body>
