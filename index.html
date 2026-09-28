@@ -609,7 +609,7 @@
         <div class="container">
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/_vB_mchoux8"
-                        title="DMPO Video"
+                        title="OGPO Video"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
@@ -639,7 +639,7 @@
             <h2>Overview</h2>
             <div class="content">
                 <div class="media-container">
-                    <img src="images/abstract_image_page.png" alt="DMPO Overview">
+                    <img src="images/OGPO-overview.png" alt="OGPO Overview">
                     <div class="caption">
                         From efficiency-performance trade-off to practical real-time control. Top: Existing methods lie on the trade-off curve: multi-step approaches (DPPO, ReinFlow) achieve strong performance but slow inference, while one-step methods (CP, MP1, 1-DP) are fast but unstable. OGPO breaks this trade-off by occupying the upper-right region. Bottom: OGPO's two-stage approach enables both fast inference and high performance.
                     </div>
@@ -678,9 +678,9 @@
                 </div>
 
                 <div class="media-container">
-                    <img src="images/DMPO-Framework.png" alt="DMPO Framework">
+                    <img src="images/OGPO-framework.png" alt="OGPO Framework">
                     <div class="caption">
-                        OGPO Framework Overview. Stage 1 (Top & Middle): Pre-training with dispersive MeanFlow. MeanFlow learns velocity fields that transform noise into actions via Vision Transformer encoding with dispersive losses to prevent representation collapse. Stage 2 (Bottom): PPO fine-tuning formulated as a two-layer policy factorization.
+                        OGPO Framework Overview. Stage 1 (Top & Middle): A Compact Velocity Field (CVF) enables one-step inference, while representation spreading preserves encoder features. Stage 2 (Bottom): On-policy RL fine-tuning uses a two-layer policy factorization.
                     </div>
                 </div>
 
@@ -708,9 +708,9 @@
                 <p><strong>Answer:</strong> Yes. OGPO achieves dramatic inference efficiency gains with true one-step generation:</p>
 
                 <div class="media-container">
-                    <img src="images/selected_success_vs_frequency_large_points.png" alt="Efficiency vs Success Rate">
+                    <img src="images/OGPO-efficiency.png" alt="Efficiency vs Success Rate">
                     <div class="caption">
-                        Inference efficiency vs. success rate trade-off across four RoboMimic tasks. The upper-left region (fast + high success) is ideal. MF and MF+Disp lie on the Pareto frontier, achieving 6-10x speedup over ShortCut and 25-40x over ReFlow while maintaining superior success rates.
+                        Inference efficiency vs. success rate trade-off across four RoboMimic tasks. The upper-left region (fast + high success) is ideal. CVF and CVF+Spread lie on the Pareto frontier, achieving 6-10x speedup over ShortCut and 25-40x over ReFlow while maintaining superior success rates.
                     </div>
                 </div>
 
@@ -721,9 +721,9 @@
                 <p><strong>Answer:</strong> Yes. Dispersive regularization significantly improves success rates by preventing representation collapse:</p>
 
                 <div class="media-container">
-                    <img src="images/evaluation_overview_success_rate.png" alt="Success Rate Comparison">
+                    <img src="images/OGPO-pretraining.png" alt="Success Rate Comparison">
                     <div class="caption">
-                        Success rate vs. denoising steps on four RoboMimic tasks (Lift, Can, Square, Transport). MeanFlow variants achieve near-saturated performance at 1-5 steps, while ReFlow and ShortCut require 32-128 steps. Dispersive regularization reduces variance on complex tasks.
+                        Success rate vs. denoising steps on four RoboMimic tasks (Lift, Can, Square, Transport). CVF variants achieve near-saturated performance at 1-5 steps, while ReFlow and ShortCut require 32-128 steps. Dispersive regularization reduces variance on complex tasks.
                     </div>
                 </div>
             </div>
@@ -745,7 +745,7 @@
 
                 <h3>RoboMimic Manipulation Tasks</h3>
                 <div class="media-container">
-                    <img src="images/robomimic_comparison_combined.png" alt="RoboMimic Fine-tuning Results">
+                    <img src="images/OGPO-robomimic.png" alt="RoboMimic Fine-tuning Results">
                     <div class="caption">
                         PPO Fine-tuning on RoboMimic tasks (Can, Square, Transport). OGPO (blue) achieves competitive or superior performance with only 1 denoising step compared to DPPO (20 steps), Gaussian baseline, and ReinFlow variants.
                     </div>
@@ -753,7 +753,7 @@
 
                 <h3>OpenAI Gym Locomotion & Kitchen Tasks</h3>
                 <div class="media-container">
-                    <img src="images/gym_all_steps_combined_6tasks.png" alt="Gym Fine-tuning Results">
+                    <img src="images/OGPO-gym.png" alt="Gym Fine-tuning Results">
                     <div class="caption">
                         PPO Fine-tuning on OpenAI Gym locomotion (Hopper, Walker2d, Ant, Humanoid) and Kitchen manipulation tasks. OGPO with 1-step inference matches or outperforms multi-step baselines.
                     </div>
@@ -891,7 +891,7 @@
                 <p><strong>Answer:</strong> Yes. We validated OGPO on a <strong>Franka-Emika-Panda</strong> robot with Intel RealSense D435i camera using an NVIDIA RTX 2080 GPU, demonstrating robust sim-to-real transfer.</p>
 
                 <div class="media-container">
-                    <img src="images/real_world.png" alt="Real Robot Experiments">
+                    <img src="images/OGPO-real-world.png" alt="Real Robot Experiments">
                     <div class="caption">
                         Real-world deployment on Franka Panda robot. Left: Hardware setup with Intel RealSense D435i camera. Right: Comparison between MP1 baseline (top row, fails on Lift and Can due to imprecise grasping caused by representation collapse) and OGPO (rows 2-3, succeeds on all four tasks including Square and Transport).
                     </div>
@@ -918,7 +918,7 @@
                 <p>Radar charts comparing OGPO against baselines across eight evaluation dimensions: Inference Speed, Model Lightweight, Success Rate, Data Efficiency, Representation Quality, Distillation Free, Beyond Demos, and Training Stability. Each dimension is scored on a 1-5 scale.</p>
 
                 <div class="media-container">
-                    <img src="images/radar_comparison_dual.png" alt="Holistic Radar Comparison">
+                    <img src="images/OGPO-radar.png" alt="Holistic Radar Comparison">
                     <div class="caption">
                         <strong>Holistic radar comparison across eight dimensions.</strong> (a) RL fine-tuning methods: OGPO forms the outer envelope, achieving top scores across all dimensions. (b) Generation methods: OGPO outperforms all baselines by combining one-step inference with lightweight architecture, high data efficiency, and the ability to go beyond demonstrations through RL fine-tuning.
                     </div>
